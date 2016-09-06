@@ -3,8 +3,8 @@
 #### 9.6
 在tableview使用group分类的时候，控制header和footer的大小使用下面的代码
 
-//section头部高度
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+	//section头部高度
+	- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 	{
 	return CGFLOAT_MIN;
 	}
