@@ -28,4 +28,16 @@
 	return view ;
 	}
 
-
+####9.7
+在reload某一个row的时候，会发生contentoffset变化的bug，一下几个方法可以解决
+	1.可以尝试使用reload
+	2.可以尝试下提前记录offSet
+	GPoint offset = tableView.contentOffset;
+	- (void)reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation; //用UITableViewRowAnimationNone
+	[tableView layoutIfNeeded]; // 强制更新
+	[tableView setContentOffset:offset]
+	3.刷新之前更改estimatedRowHeight
+	-(void)keepTableviewContentOffSetCell:(CellClass *)cell{
+	   CGRect rect = cell.frame;
+	   self.tableView.estimatedRowHeight = rect.size.height;
+	}
