@@ -43,3 +43,5 @@
 	   CGRect rect = cell.frame;
 	   self.tableView.estimatedRowHeight = rect.size.height;
 	}
+####9.8
+假如你使用极光推送没有声音，可以查看下你推送过来的sound字段，假如系统是iOS8之后的，并且有sound字段而且返回为空字符串，你可以试试返回sound字段为1107试试，这样就能播放系统的声音了。
