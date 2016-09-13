@@ -89,3 +89,11 @@
                                 	   context:nil];
 	 	return ceilf(rect.size.height);
 	}
+
+
+####9.13
+假如你遇到了这种
+
+	Undefined symbols for architecture arm64:
+	
+你可以看看自己需要用到的静态库是不是都添加进了工程。
