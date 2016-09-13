@@ -97,3 +97,9 @@
 	Undefined symbols for architecture arm64:
 	
 你可以看看自己需要用到的静态库是不是都添加进了工程。
+
+
+设置`UISearchController`取消按钮的颜色
+
+    searchController.searchBar.tintColor = [UIColor colorWithHexString:@"ff5500"];
+
