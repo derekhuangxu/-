@@ -103,3 +103,12 @@
 
     searchController.searchBar.tintColor = [UIColor colorWithHexString:@"ff5500"];
 
+####9.20
+遇到以下崩溃的问题
+
+	NSScanner:nil string argument
+	NSScanner:nil string argument
+	libc++abi.dylib: terminate_handler unexpectedly threw an exception
+	
+可以检查一下是否是intWithString:的参数传入了nil，若过不是，可以检查一下Dictionary是否传入了nil。	
+	
