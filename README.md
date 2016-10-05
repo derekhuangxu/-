@@ -111,4 +111,20 @@
 	libc++abi.dylib: terminate_handler unexpectedly threw an exception
 	
 可以检查一下是否是intWithString:的参数传入了nil，若过不是，可以检查一下Dictionary是否传入了nil。	
+
+
+
+### 2016.10
+#### 10.5
+
+如果为了兼容之前iOS版本而使用旧的Api接口，那么会出现warnig，解决方法是使用clang的命令
+在方法前使用：
+
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+	
+方法后使用：
+	
+	#pragma clang diagnostic pop
+
 	
