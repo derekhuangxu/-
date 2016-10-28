@@ -129,35 +129,6 @@
 
 ####10.28
 
-两种方法删除NSUserDefaults所有记录
-//方法一
 
-	NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-	[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-
-
-//方法二
-
-	- (void)resetDefaults {
-   		NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
-   		NSDictionary * dict = [defs dictionaryRepresentation];
-    		for (id key in dict) {
-        		[defs removeObjectForKey:key];
-    		}
-    		[defs synchronize];
-        }
-	
-查找一个视图的所有子视图
-
-         - (NSMutableArray *)allSubViewsForView:(UIView *)view {
-  		NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
-    		for (UIView *subView in view.subviews) {
-        		[array addObject:subView];
-        		if (subView.subviews.count > 0) {
-            			[array addObjectsFromArray:[self allSubViewsForView:subView]];
-        		}
-    		}
-    		return array;
-          }
 	
 	
