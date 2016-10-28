@@ -128,60 +128,35 @@
 	#pragma clang diagnostic pop
 
 ####10.28
+两种方法删除NSUserDefaults所有记录
+//方法一
 
-获取当前所在的ViewController
+	NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+	[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 
-头文件：
 
-	#import <UIKit/UIKit.h>
+//方法二
 
-	@interface UIViewController (Utils)
-	+(UIViewController*) currentViewController;
-
-	@end
+	- (void)resetDefaults {
+   		NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+   		NSDictionary * dict = [defs dictionaryRepresentation];
+    		for (id key in dict) {
+        		[defs removeObjectForKey:key];
+    		}
+    		[defs synchronize];
+	}
 	
-执行文件：
+查找一个视图的所有子视图
 
-	#import "UIViewController+Utils.h"
-
-	@implementation UIViewController (Utils)
-	+(UIViewController*) findBestViewController:(UIViewController*)vc {
-		if (vc.presentedViewController) {
-        		// Return presented view controller
-       		 	return [UIViewController findBestViewController:vc.presentedViewController];
-   		 } else if ([vc isKindOfClass:[UISplitViewController class]]) {
-			// Return right hand side
-      			UISplitViewController* svc = (UISplitViewController*) vc;
-    		         if (svc.viewControllers.count > 0)
-           			 return [UIViewController findBestViewController:svc.viewControllers.lastObject];
-       			 else
-          		 	return vc;
-   		} else if ([vc isKindOfClass:[UINavigationController class]]) {
-			// Return top view
-       			 UINavigationController* svc = (UINavigationController*) vc;
-      			  if (svc.viewControllers.count > 0)
-         			   return [UIViewController findBestViewController:svc.topViewController];
-      			  else
-        			    return vc;
-   		 } else if ([vc isKindOfClass:[UITabBarController class]]) {
-			// Return visible view
-      			UITabBarController* svc = (UITabBarController*) vc;
-        		if (svc.viewControllers.count > 0)
-      	     			 return [UIViewController findBestViewController:svc.selectedViewController];
-        		else
-      		      		return vc;
-   		 } else {
-			 // Unknown view controller type, return last child view controller
-       			 return vc;
-    		}
+	- (NSMutableArray *)allSubViewsForView:(UIView *)view {
+  		NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+    		for (UIView *subView in view.subviews) {
+        		[array addObject:subView];
+        		if (subView.subviews.count > 0) {
+            			[array addObjectsFromArray:[self allSubViewsForView:subView]];
+        		}
+    		}
+    		return array;
 	}
-	+(UIViewController*) currentViewController {
-    
-    		// Find best view controller
-   		 UIViewController* viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-   		 return [UIViewController findBestViewController:viewController];
-    
-	}
-	@end
 	
 	
