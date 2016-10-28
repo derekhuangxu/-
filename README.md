@@ -67,7 +67,7 @@
 
 假如你想省事，可以使用我简单封装后的这个方法：
 	
-	/*!
+        /*!
 	 *
 	 *  @brief 返回lable自适应高度
 	 *
@@ -128,6 +128,7 @@
 	#pragma clang diagnostic pop
 
 ####10.28
+
 两种方法删除NSUserDefaults所有记录
 //方法一
 
@@ -148,7 +149,7 @@
 	
 查找一个视图的所有子视图
 
-	- (NSMutableArray *)allSubViewsForView:(UIView *)view {
+        - (NSMutableArray *)allSubViewsForView:(UIView *)view {
   		NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
     		for (UIView *subView in view.subviews) {
         		[array addObject:subView];
@@ -157,6 +158,6 @@
         		}
     		}
     		return array;
-	}
+        }
 	
 	
