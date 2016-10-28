@@ -152,7 +152,7 @@
    		 } else if ([vc isKindOfClass:[UISplitViewController class]]) {
 			// Return right hand side
       			UISplitViewController* svc = (UISplitViewController*) vc;
-    		        if (svc.viewControllers.count > 0)
+    		         if (svc.viewControllers.count > 0)
            			 return [UIViewController findBestViewController:svc.viewControllers.lastObject];
        			 else
           		 	return vc;
