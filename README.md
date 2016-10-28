@@ -177,7 +177,6 @@
       		     	   return [UIViewController findBestViewController:svc.selectedViewController];
     		    else
     		        return vc;
-        															
    	 } else {
         
       		  // Unknown view controller type, return last child view controller
