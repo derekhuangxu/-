@@ -145,19 +145,19 @@
         		[defs removeObjectForKey:key];
     		}
     		[defs synchronize];
-	}
+        }
 	
 查找一个视图的所有子视图
 
-        - (NSMutableArray *)allSubViewsForView:(UIView *)view {
+         - (NSMutableArray *)allSubViewsForView:(UIView *)view {
   		NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
     		for (UIView *subView in view.subviews) {
-        		[array addObject:subView];
+        		[array addObject:subView];
         		if (subView.subviews.count > 0) {
-            			[array addObjectsFromArray:[self allSubViewsForView:subView]];
-        		}
-    		}
-    		return array;
-        }
+            			[array addObjectsFromArray:[self allSubViewsForView:subView]];
+        		}
+    		}
+    		return array;
+          }
 	
 	
