@@ -127,7 +127,20 @@
 	
 	#pragma clang diagnostic pop
 
-####10.28
+####11.18
+
+为了设置UITextField光标的起始位置, 让其右移，可以设置其leftview
+
+	UITextField *textField = [[UITextField alloc] init]; 
+	textField.delegate = self; 
+	textField.backgroundColor = [UIColor whiteColor]; 
+	textField.layer.cornerRadius = 5; 
+	textField.layer.masksToBounds = YES; 
+	[self.bgView addSubview:textField]; 
+	UILabel * leftView = [[UILabel alloc] initWithFrame:CGRectMake(10,0,7,26)]; 
+	leftView.backgroundColor = [UIColor clearColor]; 
+	textField.leftView = leftView; 
+	textField.leftViewMode = UITextFieldViewModeAlways; 
 
 
 	
