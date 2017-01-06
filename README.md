@@ -141,7 +141,16 @@
 	leftView.backgroundColor = [UIColor clearColor]; 
 	textField.leftView = leftView; 
 	textField.leftViewMode = UITextFieldViewModeAlways; 
-
-
 	
 	
+####2017.1.6
+
+消除TableView的Cell上的SeparatorLine的另类方法
+
+	- (void)addSubview:(UIView *)view
+	{
+   		 if ([view isKindOfClass:[NSClassFromString(@"_UITableViewCellSeparatorView") class]] && view)
+       			 [super addSubview:view];
+	}
+	
+		
