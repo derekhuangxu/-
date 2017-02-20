@@ -154,3 +154,14 @@
 	}
 	
 		
+		
+		
+		
+### 2017.02
+#### 02.20
+
+	
+	libc++abi.dylib: terminate_handler unexpectedly threw an exception
+	
+	
+如果你遇到了这个崩溃，但是数组和字典都没有错，查查看是不是有两个`pushNavigationController`		
